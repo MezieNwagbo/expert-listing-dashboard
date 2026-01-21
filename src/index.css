@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  /* brand color scale - unified */
+  --color-brand-50: #f0faf7;
+  --color-brand-100: #d9f2ec;
+  --color-brand-200: #b3e5d9;
+  --color-brand-300: #7fd1bd;
+  --color-brand-400: #49b59d;
+  --color-brand-500: #176d58; /* main brand color */
+  --color-brand-600: #105b48; /* existing darker shade */
+  --color-brand-700: #0d4a3a;
+  --color-brand-800: #0a3a2e;
+  --color-brand-900: #082f25;
+  --color-brand-950: #051b16;
+}
