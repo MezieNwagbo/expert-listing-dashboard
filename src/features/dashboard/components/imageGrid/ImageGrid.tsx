@@ -1,11 +1,12 @@
 import house_2 from "../../../../assets/images/house_2.png";
+import house_3 from "../../../../assets/images/house_3.png";
 
 const ImageGrid = () => {
   return (
     <div className="flex flex-wrap gap-4">
-      <div className="flex-1 min-w-62.5 relative aspect-4/3 overflow-hidden rounded-lg group">
+      <div className="flex-1 min-w-62.5 relative aspect-4/3 overflow-hidden rounded-xl group">
         <img
-          src={house_2}
+          src={house_3}
           alt="Urban Prime Plaze Premiere"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -30,7 +31,7 @@ const ImageGrid = () => {
         </div>
       </div>
 
-      <div className="flex-1 min-w-62.5 relative aspect-4/3 overflow-hidden rounded-lg group">
+      <div className="flex-1 min-w-62.5 relative aspect-4/3 overflow-hidden rounded-xl group">
         <img
           src={house_2}
           alt="Urban Prime Plaze Premiere"
@@ -59,10 +60,9 @@ const ImageGrid = () => {
           <div className="w-2 h-2 rounded-full bg-white/50"></div>
         </div>
       </div>
-
-      <div className="flex-1 min-w-62.5 relative aspect-/3 verflow-hidden rounded-lg group">
+      <div className="flex-1 min-w-62.5 relative aspect-4/3 overflow-hidden rounded-xl group">
         <img
-          src={house_2}
+          src={house_3}
           alt="Urban Prime Plaze Premiere"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -73,7 +73,7 @@ const ImageGrid = () => {
         {/* Text overlay */}
         <div className="absolute bottom-0 left-0 p-4 sm:p-6">
           <p className="text-xs sm:text-sm font-medium text-white/90 mb-1 capitalize">
-            Hottest Listing
+            Most Watchlisted
           </p>
           <p className="text-base sm:text-lg lg:text-xl font-semibold text-white">
             Urban Prime Plaza Premiere

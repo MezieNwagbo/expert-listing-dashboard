@@ -4,6 +4,8 @@ import Tabs from "../../../../components/Tabs";
 import { salesData } from "../../data/salesData";
 import SalesBarChart from "./SalesOverviewChart";
 import CashflowSummary from "./CashflowSummary";
+import play_icon from "../../../../assets/icons/play_icon.svg";
+import back_icon from "../../../../assets/icons/back_icon.svg";
 
 const SalesOverview = () => {
   const [selectedPeriod, setSelectedPeriod] = useState("1 Year");
@@ -38,11 +40,22 @@ const SalesOverview = () => {
         </div>
 
         <div className="border-t border-[#e4e4e4] flex flex-col md:flex-row">
-          <div className="h-60 md:h-50 md:flex-1 border-e border-[#e4e4e4]">
+          <div className="h-60 md:h-50 md:flex-1 md:shadow-[inset_-8px_0_16px_-4px_rgba(0,0,0,0.06)] relative">
+            {/* Back Icon - Left Side */}
+            <button className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <img src={back_icon} alt="Back Icon" className="w-6 h-6" />
+            </button>
+
+            {/* Chart */}
             <SalesBarChart data={salesData} />
+
+            {/* Play/Forward Icon - Right Side */}
+            <button className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 hover:bg-gray-100 rounded-full transition-colors">
+              <img src={play_icon} alt="Play Icon" className="w-6 h-6" />
+            </button>
           </div>
 
-          {/* Cashflow Summary - wraps nicely */}
+          {/* Cashflow Summary */}
           <div className="w-full lg:w-auto lg:min-w-87.5 lg:max-w-112.5">
             <CashflowSummary />
           </div>
