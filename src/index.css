@@ -14,3 +14,7 @@
   --color-brand-900: #082f25;
   --color-brand-950: #051b16;
 }
+
+* {
+  font-family: "Euclid Circular B", sans-serif;
+}

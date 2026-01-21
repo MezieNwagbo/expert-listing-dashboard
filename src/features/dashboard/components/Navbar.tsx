@@ -1,3 +1,4 @@
+import { useState } from "react";
 import logo from "../../../assets/icons/logo.svg";
 
 import calculator from "../../../assets/icons/calculator.svg";
@@ -7,22 +8,33 @@ import wallet from "../../../assets/icons/wallet-2.svg";
 import shop from "../../../assets/icons/shop.svg";
 import Avatar from "../../../assets/icons/Avatar.svg";
 
+import Modal from "../../../components/Modal";
+import Budgeting from "./Budgeting";
+
 const Navbar = () => {
+  const [isBudgetingModalOpen, setIsBudgetingModalOpen] = useState(false);
+
   const IconButton = ({
     src,
     alt,
     tooltip,
+    onClick,
   }: {
     src: string;
     alt: string;
     tooltip: string;
+    onClick?: () => void;
   }) => (
     <div className="relative group">
-      <div className="text-gray-600 cursor-pointer" role="button">
+      <div
+        className="text-gray-600 cursor-pointer"
+        role="button"
+        onClick={onClick}
+      >
         <img src={src} alt={alt} />
       </div>
       {/* Tooltip */}
-      <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 p-2 bg-gray-900 text-gray-100 font-light text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap pointer-events-none z-50">
+      <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-gray-900 text-white text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap pointer-events-none z-50">
         {tooltip}
         {/* Arrow */}
         <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
@@ -31,24 +43,39 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-brand-600">
-      <div className="flex items-center justify-between h-20.5 px-20.5">
-        {/* Brand Logo */}
-        <div className="shrink-0">
-          <img src={logo} alt="Logo" />
-        </div>
+    <>
+      <nav className="bg-brand-600">
+        <div className="flex items-center justify-between h-20.5 px-20.5">
+          {/* Brand Logo */}
+          <div className="shrink-0">
+            <img src={logo} alt="Logo" />
+          </div>
 
-        {/* Icons */}
-        <div className="flex items-center gap-6">
-          <IconButton src={calculator} alt="calculator" tooltip="Budgeting" />
-          <IconButton src={calendar} alt="calendar" tooltip="Calculator" />
-          <IconButton src={search} alt="search" tooltip="Search activity" />
-          <IconButton src={wallet} alt="wallet" tooltip="Payout center" />
-          <IconButton src={shop} alt="shop" tooltip="Marketplace" />
-          <IconButton src={Avatar} alt="avatar" tooltip="Dylan Frank" />
+          {/* Icons */}
+          <div className="flex items-center gap-6">
+            <IconButton
+              src={calculator}
+              alt="calculator"
+              tooltip="Budgeting"
+              onClick={() => setIsBudgetingModalOpen(true)}
+            />
+            <IconButton src={calendar} alt="calendar" tooltip="Calculator" />
+            <IconButton src={search} alt="search" tooltip="Search activity" />
+            <IconButton src={wallet} alt="wallet" tooltip="Payout center" />
+            <IconButton src={shop} alt="shop" tooltip="Marketplace" />
+            <IconButton src={Avatar} alt="avatar" tooltip="Dylan Frank" />
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Budgeting Modal */}
+      <Modal
+        open={isBudgetingModalOpen}
+        onClose={() => setIsBudgetingModalOpen(false)}
+      >
+        <Budgeting />
+      </Modal>
+    </>
   );
 };
 
