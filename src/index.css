@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* brand color scale - unified */
+  --color-brand-50: #f0faf7;
+  --color-brand-100: #d9f2ec;
+  --color-brand-200: #b3e5d9;
+  --color-brand-300: #7fd1bd;
+  --color-brand-400: #49b59d;
+  --color-brand-500: #176d58;
+  --color-brand-600: #105b48; /* main brand color*/
+  --color-brand-700: #0d4a3a;
+  --color-brand-800: #0a3a2e;
+  --color-brand-900: #082f25;
+  --color-brand-950: #051b16;
+
+  /* Font Family */
+  --font-sans: "Euclid Circular B", ui-sans-serif, system-ui, sans-serif;
+
+  /* Animations */
+  --animate-fadeIn: fadeIn 0.2s ease-in-out;
+  --animate-scaleIn: scaleIn 0.2s ease-in-out;
+  --animate-slideInRight: slideInRight 0.3s ease-out;
+  --animate-slideInLeft: slideInLeft 0.3s ease-out;
+}
+
+/* Font Face Declarations */
+@font-face {
+  font-family: "Euclid Circular B";
+  src: url("./assets/fonts/EuclidCircularB-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Euclid Circular B";
+  src: url("./assets/fonts/EuclidCircularB-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Euclid Circular B";
+  src: url("./assets/fonts/EuclidCircularB-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Euclid Circular B";
+  src: url("./assets/fonts/EuclidCircularB-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
