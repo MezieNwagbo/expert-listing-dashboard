@@ -23,16 +23,15 @@ const Button: React.FC<ButtonProps> = ({
   const variants = {
     primary: "bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700",
     secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300",
-    outline:
-      "border-2 border-brand-500 text-brand-500 hover:bg-brand-50 active:bg-brand-100",
+    outline: "border border-gray-300 text-black",
     ghost: "text-brand-500 hover:bg-brand-50 active:bg-brand-100",
     dark: "bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-700",
   };
 
   const sizes = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-4 py-2 text-base",
-    lg: "px-6 py-3 text-lg",
+    sm: "px-3 py-1.5 text-xs",
+    md: "px-4 py-2 text-xs",
+    lg: "px-9.25 py-3.75 text-xs",
   };
 
   return (
