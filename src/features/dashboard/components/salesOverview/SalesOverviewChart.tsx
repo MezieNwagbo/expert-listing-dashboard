@@ -17,19 +17,18 @@ interface SalesData {
 
 interface SalesBarChartProps {
   data: SalesData[];
-  height?: number;
+  height?: number | string;
   className?: string;
 }
 
 const SalesBarChart: React.FC<SalesBarChartProps> = ({
   data,
-  height = 400,
   className = "",
 }) => {
   // Format Y-axis to show millions
   const formatYAxis = (value: number) => {
     if (value >= 1000000) {
-      return `${(value / 1000000).toFixed(0)}M`;
+      return `${(value / 1000000).toFixed(0)}m`;
     }
     return value.toString();
   };
@@ -42,7 +41,7 @@ const SalesBarChart: React.FC<SalesBarChartProps> = ({
           <p className="font-semibold text-gray-900 mb-2">{label}</p>
           {payload.map((entry: any, index: number) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
-              {entry.name}: ${(entry.value / 1000000).toFixed(2)}M
+              {entry.name}: ${(entry.value / 1000000).toFixed(2)}m
             </p>
           ))}
         </div>
@@ -52,11 +51,13 @@ const SalesBarChart: React.FC<SalesBarChartProps> = ({
   };
 
   return (
-    <div className={className}>
-      <ResponsiveContainer width="100%" height={height}>
+    <div className={`h-full ${className}`}>
+      <ResponsiveContainer width="100%" height="100%">
         <RechartsBarChart
           data={data}
           margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+          barCategoryGap="20%" // Space between month groups (larger = more space)
+          barGap={2} // Space between bars within same month (smaller = closer together)
         >
           <XAxis
             dataKey="month"
@@ -79,22 +80,19 @@ const SalesBarChart: React.FC<SalesBarChartProps> = ({
           <Bar
             dataKey="productA"
             name="Product A"
-            fill="#3b82f6"
-            radius={[4, 4, 0, 0]}
+            fill="#4545FE"
             maxBarSize={40}
           />
           <Bar
             dataKey="productB"
             name="Product B"
-            fill="#10b981"
-            radius={[4, 4, 0, 0]}
+            fill="#12B76A"
             maxBarSize={40}
           />
           <Bar
             dataKey="productC"
             name="Product C"
-            fill="#ef4444"
-            radius={[4, 4, 0, 0]}
+            fill="#F04438"
             maxBarSize={40}
           />
         </RechartsBarChart>

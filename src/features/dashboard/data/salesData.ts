@@ -1,4 +1,6 @@
-// src/data/salesData.ts
+import home from "../../../assets/icons/home_icon.svg";
+import user from "../../../assets/icons/profile.svg";
+
 export const salesData = [
   {
     month: "Jan",
@@ -53,5 +55,64 @@ export const salesData = [
     productA: 33500000, // $33.5M
     productB: 41200000, // $41.2M
     productC: 27800000, // $27.8M
+  },
+];
+
+export const listingsData = {
+  icon: home,
+  title: "Listings Overview",
+  stats: [
+    { label: "Total", value: "1.8k" },
+    { label: "Active", value: "80" },
+    { label: "Archived", value: "1k" },
+  ],
+};
+
+export const usersData = {
+  icon: user,
+  title: "Users Overview",
+  stats: [
+    { label: "Total", value: "20.7k" },
+    { label: "Active", value: "8.5k" },
+    { label: "Inactive", value: "7.5k" },
+  ],
+};
+
+interface CashflowItem {
+  amount: string;
+  label: string;
+  color?: string;
+  rate: string;
+  trend: "up" | "down" | "neutral";
+}
+
+export const cashflowData: CashflowItem[] = [
+  {
+    amount: "₦120,000,000.00",
+    label: "Total Inflow",
+    color: "#4545fe",
+    rate: "2.5%",
+    trend: "up",
+  },
+  {
+    amount: "₦50,000,000.00",
+    label: "MRR",
+    color: "#12B76A",
+    rate: "2.5%",
+    trend: "up",
+  },
+  {
+    amount: "₦200,000,000.00",
+    label: "Commission Revenue",
+    color: "#14b8a6",
+    rate: "0.5%",
+    trend: "neutral",
+  },
+  {
+    amount: "₦100,000,000.00",
+    label: "GMV",
+    color: "#f04438",
+    rate: "0.5%",
+    trend: "down",
   },
 ];
