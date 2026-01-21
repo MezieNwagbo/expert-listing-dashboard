@@ -9,6 +9,13 @@ import shop from "../../../assets/icons/shop.svg";
 import Avatar from "../../../assets/icons/Avatar.svg";
 import calendar_frame from "../../../assets/icons/Calender_frame.svg";
 
+import note from "../../../assets/icons/note.svg";
+import home from "../../../assets/icons/home.svg";
+import user from "../../../assets/icons/user.svg";
+import task from "../../../assets/icons/task.svg";
+import briefcase from "../../../assets/icons/briefcase.svg";
+import scroll from "../../../assets/icons/scroll.svg";
+
 import Modal from "../../../components/Modal";
 import Drawer from "../../../components/Drawer";
 import Budgeting from "./Budgeting";
@@ -16,6 +23,7 @@ import Budgeting from "./Budgeting";
 const Navbar = () => {
   const [isBudgetingModalOpen, setIsBudgetingModalOpen] = useState(false);
   const [isCalendarDrawerOpen, setIsCalendarDrawerOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("dashboard");
 
   const IconButton = ({
     src,
@@ -45,8 +53,18 @@ const Navbar = () => {
     </div>
   );
 
+  const navItems = [
+    { id: "dashboard", label: "Dashboard", icon: home },
+    { id: "listings", label: "Listings", icon: briefcase },
+    { id: "users", label: "Users", icon: user },
+    { id: "request", label: "Request", icon: note },
+    { id: "applications", label: "Applications", icon: scroll },
+    { id: "tasks", label: "Tasks", icon: task },
+  ];
+
   return (
     <>
+      {/* Top Navbar */}
       <nav className="bg-brand-600">
         <div className="flex items-center justify-between h-20.5 px-20.5">
           {/* Brand Logo */}
@@ -76,6 +94,34 @@ const Navbar = () => {
         </div>
       </nav>
 
+      {/* Secondary Navigation */}
+      <nav>
+        <div className="flex justify-between flex-wrap items-center py-3.5 px-20.5 border-b border-gray-100">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={`
+                flex items-center gap-2 px-8 py-2.5 rounded-lg transition-all duration-200
+                ${
+                  activeTab === item.id
+                    ? "text-brand-600 bg-brand-500/15 font-semibold"
+                    : "text-[#3D3D3D] text-sm"
+                }
+              `}
+            >
+              <img
+                src={item.icon}
+                alt={item.label}
+                className={`w-5 h-5 ${
+                  activeTab === item.id ? "opacity-100" : "opacity-70"
+                }`}
+              />
+              <span className="font-medium">{item.label}</span>
+            </button>
+          ))}
+        </div>
+      </nav>
+
       {/* Budgeting Modal */}
       <Modal
         open={isBudgetingModalOpen}
@@ -92,7 +138,6 @@ const Navbar = () => {
       >
         <div className="">
           {/* Calendar Content */}
-
           <img
             src={calendar_frame}
             alt="Calendar"
