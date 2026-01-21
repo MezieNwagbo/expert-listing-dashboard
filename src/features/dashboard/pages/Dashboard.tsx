@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 
-import SalesOverview from "../components/SalesOverview";
+import SalesOverview from "../components/salesOverview/SalesOverview";
 
 const Dashboard = () => {
   return (

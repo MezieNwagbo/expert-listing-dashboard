@@ -1,5 +1,8 @@
-import Button from "../../../components/Button";
-import Tabs from "../../../components/Tabs";
+import Button from "../../../../components/Button";
+import Tabs from "../../../../components/Tabs";
+import { salesData } from "../../data/salesData";
+import OverviewCard from "./OverviewCard";
+import SalesBarChart from "./SalesOverviewChart";
 
 const SalesOverview = () => {
   return (
@@ -19,12 +22,15 @@ const SalesOverview = () => {
       </div>
 
       <div>
-        <div className="flex justify-end pb-3">
+        <div className="flex justify-end pb-1">
           <Tabs
             options={["1 Week", "1 Month", "1 Year"]}
             activeTab={"1 Year"}
             onTabChange={() => console.log("Implement set selected period")}
           />
+        </div>
+        <div className="border-t border-[#e4e4e4]">
+          <SalesBarChart data={salesData} height={450} />
         </div>
       </div>
     </div>
