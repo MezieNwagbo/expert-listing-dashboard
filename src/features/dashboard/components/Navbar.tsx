@@ -7,12 +7,15 @@ import search from "../../../assets/icons/search-status.svg";
 import wallet from "../../../assets/icons/wallet-2.svg";
 import shop from "../../../assets/icons/shop.svg";
 import Avatar from "../../../assets/icons/Avatar.svg";
+import calendar_frame from "../../../assets/icons/Calender_frame.svg";
 
 import Modal from "../../../components/Modal";
+import Drawer from "../../../components/Drawer";
 import Budgeting from "./Budgeting";
 
 const Navbar = () => {
   const [isBudgetingModalOpen, setIsBudgetingModalOpen] = useState(false);
+  const [isCalendarDrawerOpen, setIsCalendarDrawerOpen] = useState(false);
 
   const IconButton = ({
     src,
@@ -59,7 +62,12 @@ const Navbar = () => {
               tooltip="Budgeting"
               onClick={() => setIsBudgetingModalOpen(true)}
             />
-            <IconButton src={calendar} alt="calendar" tooltip="Calculator" />
+            <IconButton
+              src={calendar}
+              alt="calendar"
+              tooltip="Calculator"
+              onClick={() => setIsCalendarDrawerOpen(true)}
+            />
             <IconButton src={search} alt="search" tooltip="Search activity" />
             <IconButton src={wallet} alt="wallet" tooltip="Payout center" />
             <IconButton src={shop} alt="shop" tooltip="Marketplace" />
@@ -72,9 +80,26 @@ const Navbar = () => {
       <Modal
         open={isBudgetingModalOpen}
         onClose={() => setIsBudgetingModalOpen(false)}
+        className="w-full max-w-2xl"
       >
         <Budgeting />
       </Modal>
+
+      {/* Calendar Drawer */}
+      <Drawer
+        open={isCalendarDrawerOpen}
+        onClose={() => setIsCalendarDrawerOpen(false)}
+      >
+        <div className="">
+          {/* Calendar Content */}
+
+          <img
+            src={calendar_frame}
+            alt="Calendar"
+            className="w-full h-screen object-cover"
+          />
+        </div>
+      </Drawer>
     </>
   );
 };
